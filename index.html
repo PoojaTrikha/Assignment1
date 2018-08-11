@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+</head>
+<body>
+
+
+  <!-- YOUR HTML HERE -->
+  <img src="pic.jpeg" id='inn' onclick="reset()">
+  <img  src="pic.jpeg" id='dagger'onclick="clicked(this)">
+  <img  id='bag'>
+
+  <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+  <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+  <div id="mocha"></div>
+
+  <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+  <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sinon@3/pkg/sinon.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="YOUR_JAVASCRIPT_HERE.js"></script>
+  <script src="game_logic.test.js"></script>
+
+  <script>
+  
+  var hero =  {
+                name: "John",
+                heroic: true,
+                inventory: [],
+                health:10,
+                weapon : {
+                          type: '',
+                          damage:2
+                          }
+              }
+
+  hero.health = 8 ;
+  
+  function reset(argh){
+  hero.health = 10; 
+  }
+  reset(hero.health);
+
+
+  document.getElementById("dagger").addEventListener("onclick", clicked);
+
+  function clicked(){
+      
+      console.log(hero.inventory[0].type.pop("dagger"));
+      console.log(hero.inventory[1].damage.pop(2));
+       
+  }
+  
+  
+  clicked()
+ 
+  function bag() {
+
+
+ 
+  } 
+
+  </script>
+</body>
+</html>
